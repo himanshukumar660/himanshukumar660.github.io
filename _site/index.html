@@ -7,7 +7,12 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-	<meta name="theme-color" content="linear-gradient(60deg, rgba(255, 165, 150, 0.5) 20%, rgba(0, 228, 255, 0.95))">
+	<meta name="theme-color" content="#311e3e">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#311e3e">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#311e3e">
+	
 
 	<link rel="stylesheet" href="../assets/css/home.css" />
 
@@ -66,6 +71,7 @@
 	    }
 	</style>
 
+	
 </head>
 
 <body class="is-loading">
@@ -88,10 +94,10 @@
 
 			<footer id="icon-footer" style="margin-bottom: 4% !important">
 				<ul class="icons">
-					<li><i><a href="https://www.facebook.com/himanshueight" class="fa-facebook fa fa-3x" title="Facebook" data-toggle="tooltip" data-placement="bottom" ></a></i></li>
-					<li><i><a href="https://www.linkedin.com/in/himanshu-kumar-883648118/" class="fa-linkedin fa fa-3x" title="Linkedin" data-toggle="tooltip" data-placement="bottom"></a></i></li>
-					<li><i><a href="https://github.com/himanshukumar660" class="fa-github fa fa-3x" title="Github" data-toggle="tooltip" data-placement="bottom" ></a></i></li>
-					<li><i><a href="mailto:himanshukumar660@gmail.com" class="fa-paper-plane fa fa-3x" title="Mail" data-toggle="tooltip" data-placement="bottom"></a></i></li>
+					<li><i><a href="https://www.facebook.com/himanshueight" class="fa-facebook fa fa-2x" title="Facebook" data-toggle="tooltip" data-placement="bottom" ></a></i></li>
+					<li><i><a href="https://www.linkedin.com/in/himanshu-kumar-883648118/" class="fa-linkedin fa fa-2x" title="Linkedin" data-toggle="tooltip" data-placement="bottom"></a></i></li>
+					<li><i><a href="https://github.com/himanshukumar660" class="fa-github fa fa-2x" title="Github" data-toggle="tooltip" data-placement="bottom" ></a></i></li>
+					<li><i><a href="mailto:himanshukumar660@gmail.com" class="fa-paper-plane fa fa-2x" title="Mail" data-toggle="tooltip" data-placement="bottom"></a></i></li>
 				</ul>
 			</footer>
 
@@ -103,7 +109,31 @@
 
 	<!-- Scripts -->
 	<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-
+	<script>
+		var deg = 0;
+		var _1=0;
+		var _2=0;
+		var _3=0;
+		var _4=0;
+		var _5=0;
+		var _6=0;
+		_1 = Math.floor(Math.random()*255);
+		_2 = Math.floor(Math.random()*255);
+		_3 = Math.floor(Math.random()*255);
+		_4 = Math.floor(Math.random()*255);
+		_5 = Math.floor(Math.random()*255);
+		_6 = Math.floor(Math.random()*255);
+		var per=0;
+		setInterval(
+			function(){
+				deg = (deg+5)%360;
+				per = (per+0.001)%100;
+				$('body').css({
+			  	'background-image' : 'linear-gradient('+deg+'deg, rgba('+_1+', '+_2+', '+_3+', 0.55) '+per+'%, rgba('+_4+', '+_5+', '+_6+', 0.65))'
+			  	});	
+			}, 100);
+		
+	</script>
 	<script>
 	if ('addEventListener' in window) {
 		window.addEventListener('load', function() {
