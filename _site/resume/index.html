@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Resume - The journey of my life - Himanshu Kumar</title>
+	<title>Himanshu Kumar - Resume</title>
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +13,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 
 	<!-- Chrome, Firefox OS and Opera -->
 	<meta name="theme-color" content="#311e3e">
@@ -52,8 +54,9 @@
   </div>
 </header> <!-- End Header -->
 
-  <div class="content wrapper">
-    
+  <canvas id="the-canvas" style="width: 100% !important;height: 100% !important"></canvas>
+
+
   <div class="search-box">
   <div class="wrapper">
     <div class="search-grid">
@@ -99,7 +102,53 @@
   });
 </script>
 <script src="/assets/js/main.js"></script>
+<script type="text/javascript">
+	// If absolute URL from the remote server is provided, configure the CORS
+// header on that server.
+var url = '/assets/resume.pdf';
 
+// Disable workers to avoid yet another cross-origin issue (workers need
+// the URL of the script to be loaded, and dynamically loading a cross-origin
+// script does not work).
+// PDFJS.disableWorker = true;
+
+// The workerSrc property shall be specified.
+PDFJS.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+// Asynchronous download of PDF
+var loadingTask = PDFJS.getDocument(url);
+loadingTask.promise.then(function(pdf) {
+  console.log('PDF loaded');
+  
+  // Fetch the first page
+  var pageNumber = 1;
+  pdf.getPage(pageNumber).then(function(page) {
+    console.log('Page loaded');
+    
+    var scale = 1;
+    var viewport = page.getViewport(scale);
+
+    // Prepare canvas using PDF page dimensions
+    var canvas = document.getElementById('the-canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    // Render PDF page into canvas context
+    var renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+    renderTask.then(function () {
+      console.log('Page rendered');
+    });
+  });
+}, function (reason) {
+  // PDF loading error
+  console.error(reason);
+});
+</script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
