@@ -54,8 +54,9 @@
   </div>
 </header> <!-- End Header -->
 
+<div >
   <canvas id="the-canvas" style="width: 100% !important;height: 100% !important"></canvas>
-
+</div>
 
   <div class="search-box">
   <div class="wrapper">
@@ -124,21 +125,23 @@ loadingTask.promise.then(function(pdf) {
   var pageNumber = 1;
   pdf.getPage(pageNumber).then(function(page) {
     console.log('Page loaded');
-    
-    var scale = 1;
-    var viewport = page.getViewport(scale);
 
-    // Prepare canvas using PDF page dimensions
+
+    
     var canvas = document.getElementById('the-canvas');
     var context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
+    var scale = 5;
+	var viewport = page.getViewport(scale);
+	canvas.width = viewport.width;
+	canvas.height = viewport.height;
+	canvas.style.width = "100%";
+	canvas.style.height = "100%";
     // Render PDF page into canvas context
     var renderContext = {
       canvasContext: context,
       viewport: viewport
     };
+
     var renderTask = page.render(renderContext);
     renderTask.then(function () {
       console.log('Page rendered');
