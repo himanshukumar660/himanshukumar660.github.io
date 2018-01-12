@@ -8,21 +8,21 @@ tags: [Javascript, Node.js, Modules, Basics, Fundamentals]
 author: Himanshu Kumar # Add name author (optional)
 ---
 
-#Modules
+# Modules
     In Layman terms we can state that any Javascript may be considered as a Module. There are three types of modules present in Node.js.These are namely,
         1. File Modules
         2. Core-Modules
         3. Node-Modules
     Now let us discus one by one all of this
     Following are the salient featuers of module based systems:
-    1. Each file is its own module
-    2. Each file has access to current module defineition using module varaible.
-    3. To export a module, use module.export keyword.
-    4. To import a module, use module.import Keyword.
-    
-    ##File Modules
+        1. Each file is its own module
+        2. Each file has access to current module defineition using module varaible.
+        3. To export a module, use module.export keyword.
+        4. To import a module, use module.import Keyword.
+        
+    ## File Modules
     This are simple javascript files that a user can write and include in other files. The most common way to include these files is through
-    ''require('./path/you/want/to/include')''.
+    'require('./path/you/want/to/include')'.
     Some main features of Node.js Modules is that,
         1. Its is *safe*, as whenever we import it, we basically store it in a variable, thus it saves us from the collisions that may arise due to import of modules that have same name functions, as can be seen from popular languages, C++, PHP. Though they have come over this issue by using keywords `namespaces`.
         2. We can *conditionally* load a module.
@@ -33,13 +33,13 @@ author: Himanshu Kumar # Add name author (optional)
             a. `module.exports.function_name`
             b. `exports.function_name`
  
-    ##Modules Best Practices
+    ## Modules Best Practices
         1. Never specify the extension in the path.
         2. Always remember to use relative paths.
         3. Use exports alias when you want to import more than one thing.
         4. Never include huge codeblocks of require functions, rather make a new file and import them all to that file and include it in your main js file.
  
-    ##Important Globals
+    ## Important Globals
         1. `Console` : Can be used for debugging purposes.
         2. `Timers` : setTimeout and setInterval can be used for execute the callback as required. To clear this timer, we can use clearTimeout/clearInterval.
         3. `__filename` : Can be used to specify the file name of the currently executing file.
