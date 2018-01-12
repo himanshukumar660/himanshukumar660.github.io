@@ -42,8 +42,8 @@ Some main features of Node.js Modules is that,
 ## Important Globals
 1. Console : Can be used for debugging purposes.
 2. Timers : setTimeout and setInterval can be used for execute the callback as required. To clear this timer, we can use clearTimeout/clearInterval.
-3. __filename__ : Can be used to specify the file name of the currently executing file.
-4. __dirname__ : Can be used to indentify the directory of the currently executing js file.
+3. __filename : Can be used to specify the file name of the currently executing file.
+4. __dirname : Can be used to indentify the directory of the currently executing js file.
 5. process : *To be duscussed later*
 6. Command Line : The command line can be used to access the command line arguments. The command line arguments can be accessed from process.argv. The first argument is the node. the sesond is file path, then comes all those arguments specified with the command line.
 7. Process.nextTick : it take the callback function and places it in the next cycle of the node.js event loop.
