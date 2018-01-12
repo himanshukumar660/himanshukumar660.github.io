@@ -48,6 +48,6 @@ Some main features of Node.js Modules is that,
 6. Command Line : The command line can be used to access the command line arguments. The command line arguments can be accessed from process.argv. The first argument is the node. the sesond is file path, then comes all those arguments specified with the command line.
 7. Process.nextTick : it take the callback function and places it in the next cycle of the node.js event loop.
 8. Buffer : *To be clarified*
-9. global` Keyword : This when used can give the variable a global scope. Usage expmple. `global.somehting = 123`. Not encouraged.
+9. global Keyword : This when used can give the variable a global scope. Usage expmple. `global.somehting = 123`. Not encouraged.
 
 Let us discuss *`Core Modules`* in the next blog.
