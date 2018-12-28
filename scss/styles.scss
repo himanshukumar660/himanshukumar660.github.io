@@ -935,6 +935,11 @@ footer {
         animation: none;
         bottom: 0;
         height: 100%;
+        top:0px;
+        &.active {
+            display: block;
+            margin-top:0px;
+        }
     }
 
     #mobile-menu-open, #mobile-menu-close {
@@ -1044,4 +1049,7 @@ footer {
     text-shadow : none;
     text-decoration: none;
     color: white;
+}
+.gBtn#gitbtn{
+    background-image:url("images/Octocat.png")
 }
